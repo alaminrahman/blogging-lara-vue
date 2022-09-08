@@ -9,6 +9,9 @@ class ContactInformation extends Model
 {
     use HasFactory;
 
+
+    protected $guards = [];
+
     protected $fillable = ['pincode', 'near_by', 'tel_no', 'extra_detail', 'contact_id'];
 
     public function contact()

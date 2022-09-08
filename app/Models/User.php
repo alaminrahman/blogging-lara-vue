@@ -49,7 +49,17 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasOne(Post::class);
+        return $this->hasMany(Post::class);
+    }
+
+    public function contact_contactinformation()
+    {
+        return  $this->hasOneThrough(ContactInformation::class, Contact::class);
+    }
+
+    public function image()
+    {
+        return $this->morphMany(Image::class, 'imagable');
     }
 
 }

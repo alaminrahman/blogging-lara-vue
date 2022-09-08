@@ -11,6 +11,12 @@ use App\Models\{
     Category,
     Contact,
     ContactInformation,
+    Country,
+    State,
+    City,
+    Image,
+    Tag,
+    Video,
 };
 
 
@@ -24,24 +30,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $user = User::factory()->create();
-
-        Category::factory(15)->create();
-
-        Contact::factory(15)->create();
-
-        ContactInformation::factory(15)->create();
+        $category = Category::factory(1)->create();
+        $contact = Contact::factory(1)->create();
+        $contactinfo = ContactInformation::factory(1)->create();        
+        $post = Post::factory(10)->create();
+        $country = Country::factory(1)->create();
+        $state = State::factory(10)->create();
+        $city = City::factory(20)->create();
+        $image = Image::factory(500)->create();
         
-        Post::factory(10)->create([
-            'user_id' =>  $user->id,
-            'title' => Str::random(),
-            'description' => Str::random(),
-        ]);
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
+        $tag = Tag::factory()->create();
+        $video = Video::factory()->create();
 
     }
 }

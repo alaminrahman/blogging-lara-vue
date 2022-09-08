@@ -7,6 +7,7 @@ use App\Models\{
     Post,
     Category,
     User,
+    Country,
 };
 
 class HomeController extends Controller
@@ -20,8 +21,18 @@ class HomeController extends Controller
         // $posts = Post::with(['categories'])->first();
         // $posts->categories()->sync([1,7]);
 
-        $user = User::with(['contact.contact_informations', 'posts'])->findOrFail(16);
-        dd($user->toArray());
+        // $user = User::with(['contact_contactinformation'])->findOrFail(3);
+        // $user = $user->toArray();
+
+        // dd($user);
+
+        // $country = Country::with('stateCity')->first();
+        // dd($country->toArray());
+
+        $post = Post::with('image')->get();
+        dd($post->toArray());
+
+        return view('test', ['country' => $post]);
     }
     //
 }

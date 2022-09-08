@@ -19,4 +19,14 @@ class Post extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
+    public function image()
+    {
+        return $this->morphMany(Image::class, 'imagable');
+    }
+
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }
