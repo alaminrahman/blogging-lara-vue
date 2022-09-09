@@ -7,8 +7,9 @@ use Illuminate\Database\Seeder;
 use App\Models\{
     Video,
     Post,
-    Tag,
-}
+    Tag
+};
+
 class PostVideoSeeder extends Seeder
 {
     /**

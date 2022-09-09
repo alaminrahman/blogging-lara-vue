@@ -8,6 +8,7 @@ use App\Models\{
     Category,
     User,
     Country,
+    Video
 };
 
 class HomeController extends Controller
@@ -29,10 +30,10 @@ class HomeController extends Controller
         // $country = Country::with('stateCity')->first();
         // dd($country->toArray());
 
-        $post = Post::with('image')->get();
-        dd($post->toArray());
+        $video = Video::with('tags')->first();
+        dd($video->toArray());
 
-        return view('test', ['country' => $post]);
+        return view('test', ['country' => $video]);
     }
     //
 }

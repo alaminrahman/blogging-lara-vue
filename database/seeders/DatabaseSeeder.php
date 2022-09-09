@@ -17,6 +17,7 @@ use App\Models\{
     Image,
     Tag,
     Video,
+    Admin,
 };
 
 
@@ -39,8 +40,11 @@ class DatabaseSeeder extends Seeder
         $city = City::factory(20)->create();
         $image = Image::factory(500)->create();
         
-        $tag = Tag::factory()->create();
-        $video = Video::factory()->create();
+        $tag = Tag::factory(10)->create();
+        $video = Video::factory(50)->create();
+        
+        $tag = Admin::factory()->create();
+        $this->call(PostVideoSeeder::class);
 
     }
 }
