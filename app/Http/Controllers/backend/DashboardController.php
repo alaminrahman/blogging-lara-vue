@@ -25,10 +25,20 @@ class DashboardController extends Controller
   
         if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])){
             $request->session()->regenerate();
-            return redirect()->route('dashboard')->with('success','Logged In!');
+            return redirect()->intended('admin')->with('success','Logged In!');
         }else{
             return back()->with('error','Invalid credentials!');
         }         
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::guard('admin')->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('admin.login')->with('success', 'Logout successfully!');
     }
 
     public function dashboard()

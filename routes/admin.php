@@ -10,6 +10,7 @@ Route::controller(DashboardController::class)->group(function(){
 
 	Route::group(['middleware' => 'auth.admin'], function(){
 		Route::get('/', 'dashboard')->name('dashboard');
+		Route::get('/logout', 'logout')->name('admin.logout');
 	});
 	
 });
