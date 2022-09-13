@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\PostCollection;
 use App\Models\{
     Post,
     Category,
@@ -14,26 +15,10 @@ use App\Models\{
 class HomeController extends Controller
 {
 
-    public function posts()
+    public function posts(Request $request)
     {
-        
-        // $categories = Category::all();
-
-        // $posts = Post::with(['categories'])->first();
-        // $posts->categories()->sync([1,7]);
-
-        // $user = User::with(['contact_contactinformation'])->findOrFail(3);
-        // $user = $user->toArray();
-
-        // dd($user);
-
-        // $country = Country::with('stateCity')->first();
-        // dd($country->toArray());
-
-        $video = Video::with('tags')->first();
-        dd($video->toArray());
-
-        return view('test', ['country' => $video]);
+        return new PostCollection(Post::with(['categories'])->paginate($request->postItem));
     }
-    //
+    
+    //End
 }

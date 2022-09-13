@@ -2,26 +2,25 @@
 	<div class="container">
 		<section class="featured-posts">
 			<div class="section-title">
-				<h2><span>Featured</span></h2>
+				<h2><span>Single post {{ id }}</span></h2>
 			</div>
 			<div class="card-columns listfeaturedtag">
 
 				<!-- begin post -->
-				<div class="card" v-for="(post, index) in posts" :key="index">
+				<div class="card">
 					<div class="row">
 						<div class="col-md-5 wrapthumbnail">
-							<router-link :to="{name: 'singlePost', params: {id: post.id}}">
+							<a href="post.html">
 								<div class="thumbnail">
-									<img class="thumbnail" width="220" v-if="post.thumbnail" :src="post.thumbnail" />
-									<img class="thumbnail" width="220" v-else src="frontend/assets/img/demopic/1.jpg" />
+									<img class="thumbnail" width="220" src="frontend/assets/img/demopic/1.jpg" />
 								</div>
 								
-							</router-link>
+							</a>
 						</div>
 						<div class="col-md-7">
 							<div class="card-block">
-								<h2 class="card-title"><a href="post.html">{{ post.title }}</a></h2>
-								<h4 class="card-text">{{ post.description }}</h4>
+								<h2 class="card-title"><a href="post.html">We're living some strange times</a></h2>
+								<h4 class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</h4>
 								<div class="metafooter">
 									<div class="wrapfooter">
 										<span class="meta-footer-thumb">
@@ -46,8 +45,13 @@
 </template>
 
 <script>
+
 	export default{
 		name: 'featurePosts',
-		props: ['posts']
+		data () {
+			return {
+				id: this.$route.params.id
+			}
+		}
 	}
 </script>
