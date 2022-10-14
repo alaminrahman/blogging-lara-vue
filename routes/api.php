@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\API\PostController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,6 +18,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::controller(HomeController::class)->group(function(){
-    Route::get('posts', 'posts');
+Route::controller(PostController::class)->group(function(){
+    Route::group(['prefix' => 'posts'], function(){
+        Route::get('/', 'posts');
+        Route::get('/{id}', 'post');
+    });    
 });

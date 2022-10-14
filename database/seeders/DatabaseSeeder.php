@@ -9,14 +9,8 @@ use App\Models\{
     User,
     Post,
     Category,
-    Contact,
-    ContactInformation,
-    Country,
-    State,
-    City,
     Image,
     Tag,
-    Video,
     Admin,
 };
 
@@ -31,20 +25,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $user = User::factory()->create();
-        $category = Category::factory(1)->create();
-        $contact = Contact::factory(1)->create();
-        $contactinfo = ContactInformation::factory(1)->create();        
-        $post = Post::factory(10)->create();
-        $country = Country::factory(1)->create();
-        $state = State::factory(10)->create();
-        $city = City::factory(20)->create();
-        $image = Image::factory(500)->create();
-        
+        $category = Category::factory(1)->create();            
+        $post = Post::factory(10)->create();      
+        $image = Image::factory(500)->create();        
         $tag = Tag::factory(10)->create();
-        $video = Video::factory(50)->create();
-        
         $tag = Admin::factory()->create();
-        $this->call(PostVideoSeeder::class);
 
     }
 }

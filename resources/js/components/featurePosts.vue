@@ -20,7 +20,7 @@
 						</div>
 						<div class="col-md-7">
 							<div class="card-block">
-								<h2 class="card-title"><a href="post.html">{{ post.title }}</a></h2>
+								<h2 class="card-title"><router-link :to="{name: 'singlePost', params: {id: post.id}}">{{ post.title }}</router-link></h2>
 								<h4 class="card-text">{{ post.description }}</h4>
 								<div class="metafooter">
 									<div class="wrapfooter">

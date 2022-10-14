@@ -14,6 +14,7 @@
     "dependencies": {
         "@vitejs/plugin-vue": "^3.0.3",
         "cross-env": "^7.0.3",
+        "moment": "^2.29.4",
         "npm-watch": "^0.11.0",
         "vue": "^3.2.36",
         "vue-loader": "^17.0.0",
